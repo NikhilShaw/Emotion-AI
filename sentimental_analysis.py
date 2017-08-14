@@ -20,7 +20,7 @@ X_test = sequence.pad_sequences(X_test, maxlen=max_words)
 def create_model():
     model = Sequential()
     #use 32 dimension word-embedding using word2vec
-    model.add(Embedding(top_words, 32, input_length=max_words))
+    model.add(Embedding(top_words, 32, input_length=max_words, mask_zero=False))
     # add a layer od Conv and max pooling
     model.add(Conv1D(32, 3, border_mode= 'same' , activation= 'relu'))
     # reduce the space to half the size
